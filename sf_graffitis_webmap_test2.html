@@ -11,7 +11,6 @@
 
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
         <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
-        <script src="https://github.com/sushirittoman/stash/blob/master/sf_grafittis.json" type="text/javascript"></script>
         <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 
 
@@ -34,20 +33,21 @@
                         'Imagery © <a href="http://mapbox.com">Mapbox</a>',
                 id: 'mapbox.mapbox-streets-v7'
         }).addTo(mymap);
-
-        $.getJSON("https://github.com/sushirittoman/stash/blob/master/sf_grafittis.json", function(data) {
-                var geojson = L.geoJson(data)
-                });
         
         var myStyle = {
                 "color": "#ff0000",
                 "weight": 5, 
                 "opacity": 0.65
         };
+        
+        $.getJSON("https://github.com/sushirittoman/stash/blob/master/sf_grafittis.json", function(data) {
+                var geojson = L.geoJson(data, {
+                        style: myStyle})
+                });
+        
 
-        geojson.addTo(mymap, {
-                style: myStyle
-        });
+
+        geojson.addTo(mymap);
                 
 
 </script>
