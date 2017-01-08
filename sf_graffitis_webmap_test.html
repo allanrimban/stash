@@ -35,7 +35,9 @@
         }).addTo(mymap);
 
         $.getJSON("https://github.com/sushirittoman/stash/blob/master/sf_grafittis.json", function(data) {
-                var geojson = L.geoJson(data)
+                var geojson = L.geoJson(data, style{
+                        color = "red"
+                })
                 });
         
         geojson.addTo(mymap);
