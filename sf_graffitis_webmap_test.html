@@ -34,10 +34,12 @@
                 id: 'mapbox.mapbox-streets-v7'
         }).addTo(mymap);
 
-        var sf_grafittis = L.geoJson("https://github.com/sushirittoman/stash/blob/master/sf_grafittis.json",{
-                color="red"
-        }).addTo(mymap);
-
+        $.getJSON("https://github.com/sushirittoman/stash/blob/master/sf_grafittis.json", function(data) {
+                var geojson = L.geoJson(data)
+                });
+        
+        geojson.addTo(mymap);
+                
 
 </script>
 
