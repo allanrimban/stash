@@ -11,9 +11,11 @@
 
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
         <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
+        <script src="https://github.com/sushirittoman/stash/blob/master/sf_grafittis.json" type="text/javascript"></script>
         <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-        <script src="https://github.com/sushirittoman/stash/blob/master/sf_grafittis.json type="text.javascript"></script>
-                                                                                                               
+		<script src="https://github.com/sushirittoman/stash/blob/master/sf_grafittis.json" type="text/javascript"></script>
+		
+
         
 </head>
 <body>
@@ -22,7 +24,7 @@
 
 <div id="mapid" style="width: 600px; height: 400px;"></div>
 <script>
-        //Initialize the map, we'll put things in this map
+
         var mymap = L.map('mapid').setView([37.773972, -122.431297], 13);
         
 
@@ -33,16 +35,17 @@
                         'Imagery © <a href="http://mapbox.com">Mapbox</a>',
                 id: 'mapbox.mapbox-streets-v7'
         }).addTo(mymap);
-        
+
         var myStyle = {
                 "color": "#ff0000",
                 "weight": 5, 
                 "opacity": 0.65
         };
-        
-        $.getJSON("sf_graffitis.json", function(data) {
+
+        $.getJSON("sf_grafittis.json", function(data) {
                 var geojson = L.geoJson(data, {
-                        style: myStyle})
+                        style: myStyle
+                })
                 });
         
 
